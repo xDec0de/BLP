@@ -36,4 +36,12 @@ public class BLPCfg {
 	public static void reload() {
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
 	}
+
+	public static String getString(BLPSetting setting) {
+		return cfg.getString(setting.getPath());
+	}
+
+	public static boolean getBoolean(BLPSetting setting) {
+		return cfg.getBoolean(setting.getPath());
+	}
 }
