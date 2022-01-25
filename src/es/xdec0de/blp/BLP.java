@@ -28,7 +28,7 @@ public class BLP extends JavaPlugin {
 		MessageUtils.logCol("&8|------------------------------------------>");
 		MessageUtils.log(" ");
 		checkDependencies();
-		Bukkit.getConsoleSender().sendMessage(" ");
+		MessageUtils.log(" ");
 	}
 
 	public void onDisable() {
