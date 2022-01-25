@@ -49,11 +49,6 @@ public class BLP extends JavaPlugin {
 		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7  - &7Version: &b1.1                          &8|"));
 		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&8                                          &8|"));
 		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|------------------------------------------|"));
-		if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-			(new PAPI(instance)).unregister();
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8                                    "));
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e- &7Placeholders from &ePlaceHolderAPI &7unregistered."));
-		}
 		Bukkit.getConsoleSender().sendMessage(" ");
 	}
 

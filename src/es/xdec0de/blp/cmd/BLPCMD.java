@@ -4,6 +4,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import es.xdec0de.blp.utils.files.BLPCfg;
+import net.md_5.bungee.api.ChatColor;
+
 public class BLPCMD implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sndr, Command cmd, String label, String[] args) {
