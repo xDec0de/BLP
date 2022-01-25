@@ -5,6 +5,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import es.xdec0de.blp.cmd.BLPCMD;
+import es.xdec0de.blp.utils.UpdateChecker;
 import es.xdec0de.blp.utils.files.BLPCfg;
 import es.xdec0de.blp.utils.files.BLPMessages;
 import es.xdec0de.blp.utils.files.MessageUtils;
@@ -49,6 +50,7 @@ public class BLP extends JavaPlugin {
 		BLPCfg.setup();
 		BLPMessages.setup();
 		getCommand("blp").setExecutor(new BLPCMD());
+		getServer().getPluginManager().registerEvents(new UpdateChecker(), instance);
 	}
 	
 	private void checkDependencies() {

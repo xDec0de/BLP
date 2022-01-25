@@ -8,6 +8,7 @@
 
 Updater:
   Check: true
+  MessagePlayer: true
   Permission: "blp.updates"
 Reload:
   Permission: "blp.reload"

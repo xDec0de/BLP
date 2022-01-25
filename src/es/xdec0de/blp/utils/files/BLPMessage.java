@@ -10,7 +10,9 @@ public enum BLPMessage {
 	RELOAD_USAGE("Commands.Reload.Usage"),
 	
 	TRUE("Placeholders.IsTrue"),
-	FALSE("Placeholders.IsFalse");
+	FALSE("Placeholders.IsFalse"),
+	
+	UPDATE_AVAILABLE_PLAYER("Updater.Available.Player");
 
 	private String path;
 

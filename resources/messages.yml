@@ -17,3 +17,6 @@ Commands:
 Placeholders:
   IsTrue: "&atrue"
   IsFalse: "&cfalse"
+Updater:
+  Available:
+    Player: "%prefix% A new version &8(&e%new%&8) &7is available, using &c%current%&7."
