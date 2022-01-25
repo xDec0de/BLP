@@ -1,0 +1,19 @@
+# |------------------------------------------------------------------------| #
+# | #                                                                    # | #
+# | #                      ------------------------                      # | #
+# | #                      | BLP v2.0 by xDec0de_ |                      # | #
+# | #                      ------------------------                      # | #
+# | #                                                                    # | #
+# |------------------------------------------------------------------------| #
+
+BLP:
+  Prefix: "&7[&b&lB&9&lLP&7]"
+  Error: "&8[&c&l!&8]"
+  NoPerm: "&7&l[&c&l!&7&l] &cInsufficient permissions &8(&e%perm%&8)&c."
+Commands:
+  Reload:
+    Success: "%prefix% &aconfig has been reloaded."
+    Usage: "%error% &cUsage&8: /&eblp reload"
+Placeholders:
+  IsTrue: "&atrue"
+  IsFalse: "&cfalse"
