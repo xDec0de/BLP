@@ -30,27 +30,33 @@ class FileUtils {
 
 	static void updateFile(File file, String path) {
 		try {
+			int changes = 0;
 			FileConfiguration old = Utf8YamlConfiguration.loadConfiguration(file);
 			Utf8YamlConfiguration updated = new Utf8YamlConfiguration();
 			JavaPlugin plugin = BLP.getInstance();
 			if(plugin.getResource(path) != null)
 				updated.load(copyInputStreamToFile(plugin.getDataFolder()+ "/"+path, plugin.getResource(path)));
 			else {
-				MessageUtils.logCol("%prefix% Could not update &6"+path);
+				MessageUtils.logColRep("%prefix% Could not update &6"+path);
 				return;
 			}
 			Set<String> oldKeys = old.getKeys(true);
 			Set<String> updKeys = updated.getKeys(true);
 			for(String str : oldKeys)
-				if(!updKeys.contains(str))
+				if(!updKeys.contains(str)) {
 					old.set(str, null);
+					changes++;
+				}
 			for(String str : updKeys)
-				if(!oldKeys.contains(str))
+				if(!oldKeys.contains(str)) {
 					old.set(str, updated.get(str));
+					changes++;
+				}
 			old.save(plugin.getDataFolder() + "/"+path);
-			MessageUtils.logCol("%prefix% &6"+path+" &7has been updated to &ev"+BLP.getInstance().getDescription().getVersion()+"&7.");
+			if(changes != 0)
+				MessageUtils.logColRep("%prefix% &6"+path+" &7has been updated to &ev"+BLP.getInstance().getDescription().getVersion()+"&7 with &b"+changes+" &7changes.");
 		} catch(InvalidConfigurationException | IOException ex) {
-			MessageUtils.logCol("%prefix% Could not update &6"+path);
+			MessageUtils.logColRep("%prefix% Could not update &6"+path);
 		}
 	}
 }
