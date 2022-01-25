@@ -3,11 +3,10 @@ package es.xdec0de.blp;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import es.xdec0de.blp.utils.files.BLPCfg;
 import es.xdec0de.blp.utils.files.MessageUtils;
+import es.xdec0de.blp.utils.files.enums.BLPMessage;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.robin.battlelevels.api.BattleLevelsAPI;
-import net.md_5.bungee.api.ChatColor;
 
 class PAPI extends PlaceholderExpansion {
 
@@ -41,15 +40,16 @@ class PAPI extends PlaceholderExpansion {
 		if (player == null)
 			return ""; 
 		String str = identifier.toLowerCase();
-		int pos = Integer.parseInt(str.substring(str.lastIndexOf("#") + 1));
+		int pos = -1;
+		try {
+			pos = Integer.parseInt(str.substring(str.lastIndexOf("#") + 1));
+		} catch (NumberFormatException ex) {}
 		if(pos == -1) {
 			switch (str) {
 			case "neededfornext":
 				return String.valueOf(BattleLevelsAPI.getNeededForNext(player.getUniqueId()));
 			case "globalboosterenabled":
-				return BattleLevelsAPI.isGlobalBoosterEnabled()
-					? ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsTrue")) 
-					: ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsFalse"));
+				return BattleLevelsAPI.isGlobalBoosterEnabled() ? MessageUtils.getMessage(BLPMessage.TRUE) : MessageUtils.getMessage(BLPMessage.FALSE);
 			case "deaths":
 				return String.valueOf(BattleLevelsAPI.getDeaths(player.getUniqueId()));
 			case "killstreak":
@@ -69,9 +69,7 @@ class PAPI extends PlaceholderExpansion {
 			case "topstreak":
 				return String.valueOf(BattleLevelsAPI.getTopKillstreak(player.getUniqueId()));
 			case "boosterenabled":
-				return BattleLevelsAPI.hasBooster(player.getUniqueId())
-						? ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsTrue"))
-						: ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsFalse"));
+				return BattleLevelsAPI.hasBooster(player.getUniqueId()) ? MessageUtils.getMessage(BLPMessage.TRUE) : MessageUtils.getMessage(BLPMessage.FALSE);
 			case "neededfornextremaining":
 				return String.valueOf(BattleLevelsAPI.getNeededForNextRemaining(player.getUniqueId()));
 			case "globalbooster":
