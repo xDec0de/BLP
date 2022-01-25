@@ -6,6 +6,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import es.xdec0de.blp.cmd.BLPCMD;
+import es.xdec0de.blp.utils.files.BLPCfg;
 import net.md_5.bungee.api.ChatColor;
 
 public class BLP extends JavaPlugin {
@@ -49,7 +50,7 @@ public class BLP extends JavaPlugin {
 		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&8                                          &8|"));
 		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|------------------------------------------|"));
 		if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-			(new Placeholders(plugin)).unregister();
+			(new PAPI(instance)).unregister();
 			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8                                    "));
 			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e- &7Placeholders from &ePlaceHolderAPI &7unregistered."));
 		}
@@ -74,11 +75,8 @@ public class BLP extends JavaPlugin {
 		Plugin papi = Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
 		if(papi != null)
 			new PAPI(papi);
-		Plugin mvdwpapi = Bukkit.getPluginManager().getPlugin("MVdWPlaceholderAPI");
-		if(mvdwpapi != null)
-			new MVdWPAPI(mvdwpapi);
-		if(papi == null && mvdwpapi == null) {
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&4- &cNo placeholder plugin detected, disabling plugin."));
+		else {
+			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&4- &ePlaceholderAPI &cNOT detected, disabling plugin."));
 			Bukkit.getPluginManager().disablePlugin(instance);
 		}
 	}

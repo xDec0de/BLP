@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import es.xdec0de.blp.utils.files.BLPCfg;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.robin.battlelevels.api.BattleLevelsAPI;
 import net.md_5.bungee.api.ChatColor;
