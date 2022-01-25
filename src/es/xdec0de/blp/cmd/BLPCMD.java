@@ -5,8 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import es.xdec0de.blp.utils.files.BLPCfg;
-import es.xdec0de.blp.utils.files.BLPMessage;
 import es.xdec0de.blp.utils.files.MessageUtils;
+import es.xdec0de.blp.utils.files.enums.BLPMessage;
 
 public class BLPCMD implements CommandExecutor {
 

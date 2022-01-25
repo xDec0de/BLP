@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import es.xdec0de.blp.BLP;
+import es.xdec0de.blp.utils.files.enums.BLPMessage;
 
 public class BLPMessages {
 
@@ -19,6 +20,7 @@ public class BLPMessages {
 		if (!(file = new File(BLP.getInstance().getDataFolder(), "messages.yml")).exists())
 			BLP.getInstance().saveResource("messages.yml", false); 
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
+		FileUtils.updateFile(file, "messages.yml");
 		MessageUtils.prefix = cfg.getString(BLPMessage.PREFIX.getPath());
 		MessageUtils.errorPrefix = cfg.getString(BLPMessage.ERROR.getPath());
 	}

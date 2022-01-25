@@ -7,10 +7,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import es.xdec0de.blp.cmd.BLPCMD;
 import es.xdec0de.blp.utils.UpdateChecker;
 import es.xdec0de.blp.utils.files.BLPCfg;
-import es.xdec0de.blp.utils.files.BLPMessage;
 import es.xdec0de.blp.utils.files.BLPMessages;
-import es.xdec0de.blp.utils.files.BLPSetting;
 import es.xdec0de.blp.utils.files.MessageUtils;
+import es.xdec0de.blp.utils.files.enums.BLPMessage;
+import es.xdec0de.blp.utils.files.enums.BLPSetting;
 
 public class BLP extends JavaPlugin {
 

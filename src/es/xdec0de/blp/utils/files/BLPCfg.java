@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import es.xdec0de.blp.BLP;
+import es.xdec0de.blp.utils.files.enums.BLPSetting;
 
 public class BLPCfg {
 
@@ -19,6 +20,7 @@ public class BLPCfg {
 		if (!(file = new File(BLP.getInstance().getDataFolder(), "config.yml")).exists())
 			BLP.getInstance().saveResource("config.yml", false); 
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
+		FileUtils.updateFile(file, "config.yml");
 	}
 
 	public static void save() {

@@ -13,9 +13,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import es.xdec0de.blp.BLP;
 import es.xdec0de.blp.utils.files.BLPCfg;
-import es.xdec0de.blp.utils.files.BLPMessage;
-import es.xdec0de.blp.utils.files.BLPSetting;
 import es.xdec0de.blp.utils.files.MessageUtils;
+import es.xdec0de.blp.utils.files.enums.BLPMessage;
+import es.xdec0de.blp.utils.files.enums.BLPSetting;
 import net.md_5.bungee.api.ChatColor;
 
 public class UpdateChecker implements Listener {

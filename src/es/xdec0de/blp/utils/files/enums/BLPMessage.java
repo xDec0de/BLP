@@ -1,4 +1,4 @@
-package es.xdec0de.blp.utils.files;
+package es.xdec0de.blp.utils.files.enums;
 
 public enum BLPMessage {
 
