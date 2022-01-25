@@ -5,7 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import es.xdec0de.blp.utils.files.BLPCfg;
-import net.md_5.bungee.api.ChatColor;
+import es.xdec0de.blp.utils.files.BLPMessage;
+import es.xdec0de.blp.utils.files.MessageUtils;
 
 public class BLPCMD implements CommandExecutor {
 
@@ -13,17 +14,11 @@ public class BLPCMD implements CommandExecutor {
 		if(sndr.hasPermission(BLPCfg.get().getString("Permissions.Reload"))) {
 			if(args.length == 1) {
 				BLPCfg.reload();
-				sendMsg(sndr, "Commands.Reload.Success");
-			} else {
-				sendMsg(sndr, "Commands.Reload.Usage");
-			} 
-		} else {
-			sendMsg(sndr, "BLPAPI.NoPerm");
-		} 
+				MessageUtils.sendMessage(sndr, BLPMessage.RELOADED);
+			} else
+				MessageUtils.sendMessage(sndr, BLPMessage.RELOAD_USAGE);
+		} else
+			MessageUtils.sendMessage(sndr, BLPMessage.NO_PERM);
 		return true;
-	}
-
-	private void sendMsg(CommandSender sndr, String path) {
-		sndr.sendMessage(ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString(path).replaceAll("%prefix%", BLPCfg.get().getString("BLPAPI.Prefix"))));
 	}
 }
