@@ -11,12 +11,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import es.xdec0de.blp.utils.Replacer;
+import es.xdec0de.blp.utils.files.enums.BLPMessage;
 
 public class MessageUtils {
 
 	private final static Pattern HEX_PATTERN = Pattern.compile("#([A-Fa-f0-9]{6})");
-	static String prefix = "";
-	static String errorPrefix = "";
+	static String prefix = "&7[&b&lB&9&lLP&7]";
+	static String errorPrefix = "&8&l[&4&l!&8&l]&c";
 
 	// String utility //
 
