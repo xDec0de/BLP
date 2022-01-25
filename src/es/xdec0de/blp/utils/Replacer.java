@@ -4,6 +4,13 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Represents a replacer to replace parts of a string with other string, if you want to use the same replacements for multiple strings, you should 
+ * create a replacer variable and apply it to as many strings as you want to <b>avoid creating multiple instances of the same replacements</b>, also, 
+ * make sure that the amount of strings added to the replacer are <b>even</b>, otherwise, an exception will be thrown!
+ * 
+ * @see Replacer#Replacer(String...)
+ */
 public class Replacer {
 
 	private final LinkedList<String> replaceList = new LinkedList<String>();
@@ -11,11 +18,12 @@ public class Replacer {
 	/**
 	 * Creates a replacer to replace parts of a string with other string, if you want to use the same replacements for multiple strings, you should 
 	 * create a replacer variable and apply it to as many strings as you want to <b>avoid creating multiple instances of the same replacements</b>, also, 
-	 * <b>don't</b> use <b>null</b> strings and make sure that the amount of strings is even, otherwise, an exception will be thrown!
+	 * make sure that the amount of strings added to the replacer are <b>even</b>, otherwise, an exception will be thrown!
 	 * 
 	 * @param replaces The strings to be replaced, the format is "%placeholder1%", "replace1", "%placeholder2%", "replace2"...
 	 * 
-	 * @throws IllegalArgumentException if the amount of strings is not even, more technically, if replaces size % 2 is not equal to 0.
+	 * @see #replaceAt(String)
+	 * @see #replaceAt(List)
 	 */
 	public Replacer(String... replaces) {
 		replaceList.addAll(Arrays.asList(replaces));
@@ -71,7 +79,7 @@ public class Replacer {
 	/**
 	 * Applies the replacements to the specified list of strings, it the list is null, null will be returned.
 	 * 
-	 * @param str The string to apply the replacements to.
+	 * @param str The string list to apply the replacements to.
 	 * 
 	 * @return A new string list with the replacements applied to it.
 	 */
