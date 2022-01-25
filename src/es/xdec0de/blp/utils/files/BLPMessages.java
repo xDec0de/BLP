@@ -3,12 +3,10 @@ package es.xdec0de.blp.utils.files;
 import java.io.File;
 import java.io.IOException;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import es.xdec0de.blp.BLP;
-import net.md_5.bungee.api.ChatColor;
 
 public class BLPMessages {
 
@@ -21,14 +19,16 @@ public class BLPMessages {
 		if (!(file = new File(BLP.getInstance().getDataFolder(), "messages.yml")).exists())
 			BLP.getInstance().saveResource("messages.yml", false); 
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
+		MessageUtils.prefix = cfg.getString(BLPMessage.PREFIX.getPath());
+		MessageUtils.errorPrefix = cfg.getString(BLPMessage.ERROR.getPath());
 	}
 
 	public static void save() {
 		try {
 			cfg.save(file);
 		} catch (IOException e) {
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&lBattleLevelsPAPI: &cCould not save &6messages.yml&c file."));
-		} 
+			MessageUtils.logCol("&e&lBattleLevelsPAPI: &cCould not save &6messages.yml&c file.");
+		}
 	}
 
 	public static FileConfiguration get() {
@@ -37,5 +37,7 @@ public class BLPMessages {
 
 	public static void reload() {
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
+		MessageUtils.prefix = cfg.getString(BLPMessage.PREFIX.getPath());
+		MessageUtils.errorPrefix = cfg.getString(BLPMessage.ERROR.getPath());
 	}
 }

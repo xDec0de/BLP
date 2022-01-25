@@ -3,8 +3,8 @@ package es.xdec0de.blp;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import es.xdec0de.blp.utils.MessageUtils;
 import es.xdec0de.blp.utils.files.BLPCfg;
+import es.xdec0de.blp.utils.files.MessageUtils;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.robin.battlelevels.api.BattleLevelsAPI;
 import net.md_5.bungee.api.ChatColor;
