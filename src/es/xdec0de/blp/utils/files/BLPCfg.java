@@ -3,12 +3,10 @@ package es.xdec0de.blp.utils.files;
 import java.io.File;
 import java.io.IOException;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import es.xdec0de.blp.BLP;
-import net.md_5.bungee.api.ChatColor;
 
 public class BLPCfg {
 
@@ -27,7 +25,7 @@ public class BLPCfg {
 		try {
 			cfg.save(file);
 		} catch (IOException e) {
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&lBattleLevelsPAPI: &cCould not save &6config.yml&c file."));
+			MessageUtils.logCol("&e&lBattleLevelsPAPI: &cCould not save &6config.yml&c file.");
 		} 
 	}
 
