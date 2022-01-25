@@ -29,10 +29,8 @@ public class BLP extends JavaPlugin {
 		MessageUtils.log(" ");
 		MessageUtils.logCol("&8|------------------------------------------>");
 		MessageUtils.log(" ");
-		checkDependencies();
-		MessageUtils.log(" ");
-		checkUpdates();
-		MessageUtils.log(" ");
+		if(checkDependencies())
+			checkUpdates();
 	}
 
 	public void onDisable() {
@@ -57,21 +55,27 @@ public class BLP extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new UpdateChecker(), instance);
 	}
 	
-	private void checkDependencies() {
+	private boolean checkDependencies() {
 		Plugin bl = Bukkit.getPluginManager().getPlugin("BattleLevels");
-		if(bl != null)
+		if(bl != null) {
 			MessageUtils.logCol("&e- &bBattleLevels &7detected (&av" + bl.getDescription().getVersion() + "&7)");
-		else {
+			MessageUtils.log(" ");
+		} else {
 			MessageUtils.logCol("&4- &eBattleLevels &cNOT detected, disabling plugin.");
+			MessageUtils.log(" ");
 			Bukkit.getPluginManager().disablePlugin(instance);
+			return false;
 		}
 		Plugin papi = Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
 		if(papi != null)
 			new PAPI(papi);
 		else {
 			MessageUtils.logCol("&4- &ePlaceholderAPI &cNOT detected, disabling plugin.");
+			MessageUtils.log(" ");
 			Bukkit.getPluginManager().disablePlugin(instance);
+			return false;
 		}
+		return true;
 	}
 
 	private void checkUpdates() {

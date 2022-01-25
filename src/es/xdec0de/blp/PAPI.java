@@ -13,6 +13,7 @@ class PAPI extends PlaceholderExpansion {
 
 	protected PAPI(Plugin papi) {
 		MessageUtils.logCol("&e- &bPlaceHolderAPI &7detected (&av" + papi.getDescription().getVersion() + "&7)");
+		MessageUtils.log(" ");
 		register();
 	}
 
