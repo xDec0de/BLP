@@ -10,12 +10,12 @@ import me.robin.battlelevels.api.BattleLevelsAPI;
 import net.md_5.bungee.api.ChatColor;
 
 class PAPI extends PlaceholderExpansion {
-	
+
 	protected PAPI(Plugin papi) {
 		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e- &bPlaceHolderAPI &7detected (&av" + papi.getDescription().getVersion() + "&7)"));
 		register();
 	}
-	
+
 	public boolean persist() {
 		return true;
 	}
@@ -46,9 +46,9 @@ class PAPI extends PlaceholderExpansion {
 			case "neededfornext":
 				return String.valueOf(BattleLevelsAPI.getNeededForNext(player.getUniqueId()));
 			case "globalboosterenabled":
-				if (BattleLevelsAPI.isGlobalBoosterEnabled())
-					return ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsTrue")); 
-				return ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsFalse"));
+				return BattleLevelsAPI.isGlobalBoosterEnabled()
+					? ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsTrue")) 
+					: ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsFalse"));
 			case "deaths":
 				return String.valueOf(BattleLevelsAPI.getDeaths(player.getUniqueId()));
 			case "killstreak":
@@ -68,9 +68,9 @@ class PAPI extends PlaceholderExpansion {
 			case "topstreak":
 				return String.valueOf(BattleLevelsAPI.getTopKillstreak(player.getUniqueId()));
 			case "boosterenabled":
-				if(BattleLevelsAPI.hasBooster(player.getUniqueId()))
-					return ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsTrue")); 
-				return ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsFalse"));
+				return BattleLevelsAPI.hasBooster(player.getUniqueId())
+						? ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsTrue"))
+						: ChatColor.translateAlternateColorCodes('&', BLPCfg.get().getString("PlaceHolders.IsFalse"));
 			case "neededfornextremaining":
 				return String.valueOf(BattleLevelsAPI.getNeededForNextRemaining(player.getUniqueId()));
 			case "globalbooster":
@@ -84,14 +84,5 @@ class PAPI extends PlaceholderExpansion {
 			}
 		}
 		return null;
-	}
-	
-	private int getLastInt(String str) {
-		int lastPos;
-		for(lastPos = str.length()-1; lastPos >= 0; --lastPos)
-			if(!Character.isDigit(str.charAt(lastPos))) break;
-		lastPos++;
-		if(lastPos == str.length()) return -1;
-		return Integer.parseInt(str.substring(lastPos));
 	}
 }
