@@ -1,9 +1,9 @@
 package es.xdec0de.blp;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import es.xdec0de.blp.utils.MessageUtils;
 import es.xdec0de.blp.utils.files.BLPCfg;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.robin.battlelevels.api.BattleLevelsAPI;
@@ -12,7 +12,7 @@ import net.md_5.bungee.api.ChatColor;
 class PAPI extends PlaceholderExpansion {
 
 	protected PAPI(Plugin papi) {
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e- &bPlaceHolderAPI &7detected (&av" + papi.getDescription().getVersion() + "&7)"));
+		MessageUtils.logCol("&e- &bPlaceHolderAPI &7detected (&av" + papi.getDescription().getVersion() + "&7)");
 		register();
 	}
 

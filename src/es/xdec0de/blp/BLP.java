@@ -5,9 +5,9 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import es.xdec0de.blp.cmd.BLPCMD;
+import es.xdec0de.blp.utils.MessageUtils;
 import es.xdec0de.blp.utils.files.BLPCfg;
 import es.xdec0de.blp.utils.files.BLPMessages;
-import net.md_5.bungee.api.ChatColor;
 
 public class BLP extends JavaPlugin {
 
@@ -15,41 +15,41 @@ public class BLP extends JavaPlugin {
 
 	public void onEnable() {
 		executeEnable();
-		Bukkit.getConsoleSender().sendMessage(" ");
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|------------------------------------------|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|             &e&lBattleLevelsPAPI             &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&8                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7  - &aPlugin enabled                        &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&8                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7  - &7Author:                               &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7     - &bxDec0de_                           &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7  - &7Version: &b1.1                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&8                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|------------------------------------------|"));
-		Bukkit.getConsoleSender().sendMessage(" ");
+		MessageUtils.log(" ");
+		MessageUtils.logCol("&8|------------------------------------------|");
+		MessageUtils.logCol("&8|                                          &8|");
+		MessageUtils.logCol("&8|             &e&lBattleLevelsPAPI             &8|");
+		MessageUtils.logCol("&8|&8                                          &8|");
+		MessageUtils.logCol("&8|&7  - &aPlugin disabled                       &8|");
+		MessageUtils.logCol("&8|&8                                          &8|");
+		MessageUtils.logCol("&8|&7  - &7Author:                               &8|");
+		MessageUtils.logCol("&8|&7                                          &8|");
+		MessageUtils.logCol("&8|&7     - &bxDec0de_                           &8|");
+		MessageUtils.logCol("&8|&7                                          &8|");
+		MessageUtils.logCol("&8|&7  - &7Version: &b1.1                          &8|");
+		MessageUtils.logCol("&8|&8                                          &8|");
+		MessageUtils.logCol("&8|------------------------------------------|");
+		MessageUtils.log(" ");
 		checkDependencies();
 		Bukkit.getConsoleSender().sendMessage(" ");
 	}
 
 	public void onDisable() {
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8                                    "));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|------------------------------------------|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|             &e&lBattleLevelsPAPI             &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&8                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7  - &cPlugin disabled                       &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&8                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7  - &7Author:                               &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7     - &bxDec0de_                           &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&7  - &7Version: &b1.1                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|&8                                          &8|"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8|------------------------------------------|"));
-		Bukkit.getConsoleSender().sendMessage(" ");
+		MessageUtils.log(" ");
+		MessageUtils.logCol("&8|------------------------------------------|");
+		MessageUtils.logCol("&8|                                          &8|");
+		MessageUtils.logCol("&8|             &e&lBattleLevelsPAPI             &8|");
+		MessageUtils.logCol("&8|&8                                          &8|");
+		MessageUtils.logCol("&8|&7  - &cPlugin disabled                       &8|");
+		MessageUtils.logCol("&8|&8                                          &8|");
+		MessageUtils.logCol("&8|&7  - &7Author:                               &8|");
+		MessageUtils.logCol("&8|&7                                          &8|");
+		MessageUtils.logCol("&8|&7     - &bxDec0de_                           &8|");
+		MessageUtils.logCol("&8|&7                                          &8|");
+		MessageUtils.logCol("&8|&7  - &7Version: &b1.1                          &8|");
+		MessageUtils.logCol("&8|&8                                          &8|");
+		MessageUtils.logCol("&8|------------------------------------------|");
+		MessageUtils.log(" ");
 	}
 
 	private void executeEnable() {
@@ -62,16 +62,16 @@ public class BLP extends JavaPlugin {
 	private void checkDependencies() {
 		Plugin bl = Bukkit.getPluginManager().getPlugin("BattleLevels");
 		if(bl != null)
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e- &bBattleLevels &7detected (&av" + bl.getDescription().getVersion() + "&7)"));
+			MessageUtils.logCol("&e- &bBattleLevels &7detected (&av" + bl.getDescription().getVersion() + "&7)");
 		else {
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&4- &eBattleLevels &cNOT detected, disabling plugin."));
+			MessageUtils.logCol("&4- &eBattleLevels &cNOT detected, disabling plugin.");
 			Bukkit.getPluginManager().disablePlugin(instance);
 		}
 		Plugin papi = Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
 		if(papi != null)
 			new PAPI(papi);
 		else {
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&4- &ePlaceholderAPI &cNOT detected, disabling plugin."));
+			MessageUtils.logCol("&4- &ePlaceholderAPI &cNOT detected, disabling plugin.");
 			Bukkit.getPluginManager().disablePlugin(instance);
 		}
 	}
