@@ -56,8 +56,8 @@ public class MessageUtils {
 	// Loggers //
 
 	/**
-	 * Sends the specified string to the console, if the string is null, "null" will be sent, if the string is empty
-	 * , nothing will be done.
+	 * Sends the specified string to the console, if the string is null, "null" will be sent, if the string is empty, 
+	 * nothing will be done.
 	 * 
 	 * @param str The string to send
 	 */
@@ -69,13 +69,25 @@ public class MessageUtils {
 	}
 
 	/**
-	 * Applies color to the specified string and then sends it to the console, if the string is null, "null" will be sent
-	 * , if the string is empty, nothing will be done.
+	 * Applies color ({@link #applyColor(String)}) to the specified string and then sends it to the console, if the string is null, "null" will be sent, 
+	 * if the string is empty, nothing will be done.
 	 * 
 	 * @param str The string to send
 	 */
 	public static void logCol(String str) {
 		if(!str.isEmpty())
 			Bukkit.getConsoleSender().sendMessage(applyColor(str)); // It's not necessary to null check as applyColor does it.
+	}
+
+	/**
+	 * Applies color ({@link #applyColor(String)}) and replacements ({@link Replacer}) to the specified string and then sends it to the console, 
+	 * if the string is null, "null" will be sent, if the string is empty, nothing will be done.
+	 * 
+	 * @param str The string to send ({@link #applyColor(String)})
+	 * @replacements The replacements to apply to the string ({@link Replacer})
+	 */
+	public static void logCol(String str, String... replacements) {
+		if(!str.isEmpty())
+			Bukkit.getConsoleSender().sendMessage(applyColor(new Replacer(replacements).replaceAt(str)));
 	}
 }
