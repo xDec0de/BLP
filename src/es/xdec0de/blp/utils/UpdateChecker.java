@@ -40,7 +40,7 @@ public class UpdateChecker implements Listener {
 				getLatestVersion(version -> {
 					String current = BLP.getInstance().getDescription().getVersion();
 					if(!current.equalsIgnoreCase(version)) {
-						MessageUtils.sendMessage(e.getPlayer(), BLPMessage.UPDATE_AVAILABLE_PLAYER, "%current%", current, "%mew%", version);
+						MessageUtils.sendMessage(e.getPlayer(), BLPMessage.UPDATE_AVAILABLE_PLAYER, "%current%", current, "%new%", version);
 					}
 				});
 			}
