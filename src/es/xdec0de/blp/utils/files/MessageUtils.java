@@ -137,7 +137,8 @@ public class MessageUtils {
 	}
 
 	/**
-	 * Gets a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, a new replacer made with the specified strings is added to the default replacer.
+	 * Gets a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, a new replacer made with the 
+	 * specified strings is added to the default replacer.
 	 * 
 	 * @param msg The message to get.
 	 * @param replacements The replacements to apply.
@@ -151,7 +152,7 @@ public class MessageUtils {
 	// Message senders //
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, empty messages will be ignored and the message wont be sent.
 	 * 
 	 * @param sender The sender that will receive the message.
 	 * @param msg The message to get.
@@ -159,11 +160,14 @@ public class MessageUtils {
 	 * @see #getMessage(BLPMessage)
 	 */
 	public static void sendMessage(CommandSender sender, BLPMessage msg) {
-		sender.sendMessage(getMessage(msg));
+		String send = getMessage(msg);
+		if(!send.isEmpty())
+			sender.sendMessage(send);
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, the specified replacer is added to the default replacer.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, 
+	 * the specified replacer is added to the default replacer, empty messages will be ignored and the message wont be sent.
 	 * 
 	 * @param sender The sender that will receive the message.
 	 * @param msg The message to get.
@@ -172,11 +176,14 @@ public class MessageUtils {
 	 * @see #getMessage(BLPMessage, Replacer)
 	 */
 	public static void sendMessage(CommandSender sender, BLPMessage msg, Replacer replacer) {
-		sender.sendMessage(getMessage(msg, replacer));
+		String send = getMessage(msg, replacer);
+		if(!send.isEmpty())
+			sender.sendMessage(send);
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, a new replacer made with the specified strings is added to the default replacer.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, a new replacer made with 
+	 * the specified strings is added to the default replacer, empty messages will be ignored and the message wont be sent.
 	 * 
 	 * @param sender The sender that will receive the message.
 	 * @param msg The message to get.
@@ -185,11 +192,13 @@ public class MessageUtils {
 	 * @see #getMessage(BLPMessage, String...)
 	 */
 	public static void sendMessage(CommandSender sender, BLPMessage msg, String... replacements) {
-		sender.sendMessage(getMessage(msg, replacements));
+		String send = getMessage(msg, replacements);
+		if(!send.isEmpty())
+			sender.sendMessage(send);
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, empty messages will be ignored and the message wont be sent.
 	 * 
 	 * @param player The player that will receive the message.
 	 * @param msg The message to get.
@@ -197,11 +206,14 @@ public class MessageUtils {
 	 * @see #getMessage(BLPMessage)
 	 */
 	public static void sendMessage(Player player, BLPMessage msg) {
-		player.sendMessage(getMessage(msg));
+		String send = getMessage(msg);
+		if(!send.isEmpty())
+			player.sendMessage(send);
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, the specified replacer is added to the default replacer.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, 
+	 * the specified replacer is added to the default replacer, empty messages will be ignored and the message wont be sent.
 	 * 
 	 * @param player The player that will receive the message.
 	 * @param msg The message to get.
@@ -210,11 +222,14 @@ public class MessageUtils {
 	 * @see #getMessage(BLPMessage, Replacer)
 	 */
 	public static void sendMessage(Player player, BLPMessage msg, Replacer replacer) {
-		player.sendMessage(getMessage(msg, replacer));
+		String send = getMessage(msg, replacer);
+		if(!send.isEmpty())
+			player.sendMessage(send);
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, a new replacer made with the specified strings is added to the default replacer.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, a new replacer made with 
+	 * the specified strings is added to the default replacer, empty messages will be ignored and the message wont be sent.
 	 * 
 	 * @param player The player that will receive the message.
 	 * @param msg The message to get.
@@ -223,6 +238,8 @@ public class MessageUtils {
 	 * @see #getMessage(BLPMessage, String...)
 	 */
 	public static void sendMessage(Player player, BLPMessage msg, String... replacements) {
-		player.sendMessage(getMessage(msg, replacements));
+		String send = getMessage(msg, replacements);
+		if(!send.isEmpty())
+			player.sendMessage(send);
 	}
 }
