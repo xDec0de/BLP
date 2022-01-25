@@ -1,9 +1,8 @@
-name: BLP
+name: ${project.name}
 main: es.xdec0de.blp.BLP
 author: xDec0de_
-version: 2.0
-prefix: "BLP v2.0"
-softdepend: [BattleLevels, PlaceholderAPI, MVdWPlaceholderAPI]
+version: ${project.version}
+softdepend: [BattleLevels, PlaceholderAPI]
 commands:
   blp:
     usage: /<command> reload

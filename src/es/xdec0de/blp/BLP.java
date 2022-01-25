@@ -16,19 +16,15 @@ public class BLP extends JavaPlugin {
 	public void onEnable() {
 		executeEnable();
 		MessageUtils.log(" ");
-		MessageUtils.logCol("&8|------------------------------------------|");
-		MessageUtils.logCol("&8|                                          &8|");
-		MessageUtils.logCol("&8|             &e&lBattleLevelsPAPI             &8|");
-		MessageUtils.logCol("&8|&8                                          &8|");
-		MessageUtils.logCol("&8|&7  - &aPlugin disabled                       &8|");
-		MessageUtils.logCol("&8|&8                                          &8|");
-		MessageUtils.logCol("&8|&7  - &7Author:                               &8|");
-		MessageUtils.logCol("&8|&7                                          &8|");
-		MessageUtils.logCol("&8|&7     - &bxDec0de_                           &8|");
-		MessageUtils.logCol("&8|&7                                          &8|");
-		MessageUtils.logCol("&8|&7  - &7Version: &b1.1                          &8|");
-		MessageUtils.logCol("&8|&8                                          &8|");
-		MessageUtils.logCol("&8|------------------------------------------|");
+		MessageUtils.logCol("&8|------------------------------------------>");
+		MessageUtils.log(" ");
+		MessageUtils.logCol("       &e&lBattleLevelsPAPI &8- &aEnabled");
+		MessageUtils.log(" ");
+		MessageUtils.logCol("  &b- &7Author&8: &bxDec0de_");
+		MessageUtils.log(" ");
+		MessageUtils.logCol("  &b- &7Version: &b"+instance.getDescription().getVersion());
+		MessageUtils.log(" ");
+		MessageUtils.logCol("&8|------------------------------------------>");
 		MessageUtils.log(" ");
 		checkDependencies();
 		Bukkit.getConsoleSender().sendMessage(" ");
@@ -36,19 +32,15 @@ public class BLP extends JavaPlugin {
 
 	public void onDisable() {
 		MessageUtils.log(" ");
-		MessageUtils.logCol("&8|------------------------------------------|");
-		MessageUtils.logCol("&8|                                          &8|");
-		MessageUtils.logCol("&8|             &e&lBattleLevelsPAPI             &8|");
-		MessageUtils.logCol("&8|&8                                          &8|");
-		MessageUtils.logCol("&8|&7  - &cPlugin disabled                       &8|");
-		MessageUtils.logCol("&8|&8                                          &8|");
-		MessageUtils.logCol("&8|&7  - &7Author:                               &8|");
-		MessageUtils.logCol("&8|&7                                          &8|");
-		MessageUtils.logCol("&8|&7     - &bxDec0de_                           &8|");
-		MessageUtils.logCol("&8|&7                                          &8|");
-		MessageUtils.logCol("&8|&7  - &7Version: &b1.1                          &8|");
-		MessageUtils.logCol("&8|&8                                          &8|");
-		MessageUtils.logCol("&8|------------------------------------------|");
+		MessageUtils.logCol("&8|------------------------------------------>");
+		MessageUtils.log(" ");
+		MessageUtils.logCol("       &e&lBattleLevelsPAPI &8- &cDisabled");
+		MessageUtils.log(" ");
+		MessageUtils.logCol("  &b- &7Author&8: &bxDec0de_");
+		MessageUtils.log(" ");
+		MessageUtils.logCol("  &b- &7Version: &b"+instance.getDescription().getVersion());
+		MessageUtils.log(" ");
+		MessageUtils.logCol("&8|------------------------------------------>");
 		MessageUtils.log(" ");
 	}
 
