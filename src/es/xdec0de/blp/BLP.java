@@ -7,7 +7,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import es.xdec0de.blp.cmd.BLPCMD;
 import es.xdec0de.blp.utils.UpdateChecker;
 import es.xdec0de.blp.utils.files.BLPCfg;
+import es.xdec0de.blp.utils.files.BLPMessage;
 import es.xdec0de.blp.utils.files.BLPMessages;
+import es.xdec0de.blp.utils.files.BLPSetting;
 import es.xdec0de.blp.utils.files.MessageUtils;
 
 public class BLP extends JavaPlugin {
@@ -28,6 +30,8 @@ public class BLP extends JavaPlugin {
 		MessageUtils.logCol("&8|------------------------------------------>");
 		MessageUtils.log(" ");
 		checkDependencies();
+		MessageUtils.log(" ");
+		checkUpdates();
 		MessageUtils.log(" ");
 	}
 
@@ -67,6 +71,18 @@ public class BLP extends JavaPlugin {
 		else {
 			MessageUtils.logCol("&4- &ePlaceholderAPI &cNOT detected, disabling plugin.");
 			Bukkit.getPluginManager().disablePlugin(instance);
+		}
+	}
+
+	private void checkUpdates() {
+		if(BLPCfg.getBoolean(BLPSetting.CHECK_UPDATES) && BLPCfg.getBoolean(BLPSetting.UPDATER_MESSAGE_CONSOLE)) {
+			String current = getDescription().getVersion();
+			UpdateChecker.getLatestVersion(version -> {
+				if(!current.equals(version))
+					MessageUtils.sendMessage(Bukkit.getConsoleSender(), BLPMessage.UPDATE_AVAILABLE_CONSOLE, "%current%", current, "%new%", version);
+				else
+					MessageUtils.sendMessage(Bukkit.getConsoleSender(), BLPMessage.UPDATE_LATEST_CONSOLE, "%current%", current);
+			});
 		}
 	}
 

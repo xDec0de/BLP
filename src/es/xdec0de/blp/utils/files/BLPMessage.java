@@ -12,7 +12,11 @@ public enum BLPMessage {
 	TRUE("Placeholders.IsTrue"),
 	FALSE("Placeholders.IsFalse"),
 	
-	UPDATE_AVAILABLE_PLAYER("Updater.Available.Player");
+	UPDATE_AVAILABLE_PLAYER("Updater.Available.Player"),
+	UPDATE_AVAILABLE_CONSOLE("Updater.Available.Console"),
+
+	UPDATE_LATEST_PLAYER("Updater.Latest.Player"),
+	UPDATE_LATEST_CONSOLE("Updater.Latest.Console");
 
 	private String path;
 

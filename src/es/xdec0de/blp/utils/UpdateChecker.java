@@ -22,7 +22,7 @@ public class UpdateChecker implements Listener {
 
 	private static final int resourceId = 74141;
 
-	public void getLatestVersion(final Consumer<String> consumer) {
+	public static void getLatestVersion(final Consumer<String> consumer) {
 		Bukkit.getScheduler().runTaskAsynchronously(BLP.getInstance(), () -> {
 			try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + resourceId).openStream(); Scanner scanner = new Scanner(inputStream)) {
 				if (scanner.hasNext())

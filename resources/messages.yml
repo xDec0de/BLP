@@ -20,3 +20,7 @@ Placeholders:
 Updater:
   Available:
     Player: "%prefix% A new version &8(&e%new%&8) &7is available, using &c%current%&7."
+    Console: "%prefix% A new version &8(&e%new%&8) &7is available, using &c%current%&7."
+  Latest:
+    Player: "%prefix% You are using the latest version."
+    Console: "%prefix% You are using the latest version."
