@@ -82,6 +82,18 @@ public class MessageUtils {
 	 */
 	public static void logCol(String str) {
 		if(!str.isEmpty())
+			Bukkit.getConsoleSender().sendMessage(applyColor(str));
+		// It's not necessary to null check as applyColor does it.
+	}
+
+	/**
+	 * Applies color ({@link #applyColor(String)}) and the default {@link Replacer} to the specified string and then sends it to the console, 
+	 * if the string is null, "null" will be sent, if the string is empty, nothing will be done.
+	 * 
+	 * @param str The string to send
+	 */
+	public static void logColRep(String str) {
+		if(!str.isEmpty())
 			Bukkit.getConsoleSender().sendMessage(applyColor(new Replacer("%prefix%", prefix, "%error%", errorPrefix).replaceAt(str)));
 		// It's not necessary to null check as applyColor does it.
 	}
@@ -102,7 +114,7 @@ public class MessageUtils {
 	// Message getters //
 
 	/**
-	 * Gets a message with colors {@link #applyColor(String)} and the default {@link Replacer}, which contains the %prefix% and %error% placeholder, applied to it
+	 * Gets a message with colors {@link #applyColor(String)} and the default {@link Replacer}.
 	 * 
 	 * @param msg The message to get.
 	 * 
@@ -113,8 +125,7 @@ public class MessageUtils {
 	}
 
 	/**
-	 * Gets a message with colors {@link #applyColor(String)} and the default {@link Replacer}, which contains the %prefix% and %error% placeholder, applied to it, 
-	 * also, the specified replacer is added to the default replacer.
+	 * Gets a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, the specified replacer is added to the default replacer.
 	 * 
 	 * @param msg The message to get.
 	 * @param replacer The replacer to apply.
@@ -126,8 +137,7 @@ public class MessageUtils {
 	}
 
 	/**
-	 * Gets a message with colors {@link #applyColor(String)} and the default {@link Replacer}, which contains the %prefix% and %error% placeholder, applied to it, 
-	 * also, a replacer new replacer made with the specified strings is added to the default replacer.
+	 * Gets a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, a new replacer made with the specified strings is added to the default replacer.
 	 * 
 	 * @param msg The message to get.
 	 * @param replacements The replacements to apply.
@@ -141,7 +151,7 @@ public class MessageUtils {
 	// Message senders //
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, which contains the %prefix% and %error% placeholder, applied to it.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}.
 	 * 
 	 * @param sender The sender that will receive the message.
 	 * @param msg The message to get.
@@ -153,8 +163,7 @@ public class MessageUtils {
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, which contains the %prefix% and %error% placeholder, applied to it, 
-	 * also, the specified replacer is added to the default replacer.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, the specified replacer is added to the default replacer.
 	 * 
 	 * @param sender The sender that will receive the message.
 	 * @param msg The message to get.
@@ -167,8 +176,7 @@ public class MessageUtils {
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, which contains the %prefix% and %error% placeholder, applied to it, 
-	 * also, a replacer new replacer made with the specified strings is added to the default replacer.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, a new replacer made with the specified strings is added to the default replacer.
 	 * 
 	 * @param sender The sender that will receive the message.
 	 * @param msg The message to get.
@@ -181,7 +189,7 @@ public class MessageUtils {
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, which contains the %prefix% and %error% placeholder, applied to it.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}.
 	 * 
 	 * @param player The player that will receive the message.
 	 * @param msg The message to get.
@@ -193,8 +201,7 @@ public class MessageUtils {
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, which contains the %prefix% and %error% placeholder, applied to it, 
-	 * also, the specified replacer is added to the default replacer.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, the specified replacer is added to the default replacer.
 	 * 
 	 * @param player The player that will receive the message.
 	 * @param msg The message to get.
@@ -207,8 +214,7 @@ public class MessageUtils {
 	}
 
 	/**
-	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, which contains the %prefix% and %error% placeholder, applied to it, 
-	 * also, a replacer new replacer made with the specified strings is added to the default replacer.
+	 * Sends a message with colors {@link #applyColor(String)} and the default {@link Replacer}, also, a new replacer made with the specified strings is added to the default replacer.
 	 * 
 	 * @param player The player that will receive the message.
 	 * @param msg The message to get.

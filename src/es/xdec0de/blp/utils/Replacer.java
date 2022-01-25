@@ -7,7 +7,9 @@ import java.util.List;
 /**
  * Represents a replacer to replace parts of a string with other string, if you want to use the same replacements for multiple strings, you should 
  * create a replacer variable and apply it to as many strings as you want to <b>avoid creating multiple instances of the same replacements</b>, also, 
- * make sure that the amount of strings added to the replacer are <b>even</b>, otherwise, an exception will be thrown!
+ * make sure that the amount of strings added to the replacer are <b>even</b>, otherwise, an exception will be thrown!<br><br>
+ * 
+ * The default replacer stands for a replacer with the %prefix% and %error% replaces added to it.
  * 
  * @see Replacer#Replacer(String...)
  */
