@@ -1,12 +1,12 @@
 package es.xdec0de.blp;
 
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import es.xdec0de.blp.cmd.BLPCMD;
 import es.xdec0de.blp.utils.files.BLPCfg;
+import es.xdec0de.blp.utils.files.BLPMessages;
 import net.md_5.bungee.api.ChatColor;
 
 public class BLP extends JavaPlugin {
@@ -55,8 +55,8 @@ public class BLP extends JavaPlugin {
 	private void executeEnable() {
 		instance = this;
 		BLPCfg.setup();
-		BLPCfg.save();
-		getCommand("blp").setExecutor((CommandExecutor)new BLPCMD());
+		BLPMessages.setup();
+		getCommand("blp").setExecutor(new BLPCMD());
 	}
 	
 	private void checkDependencies() {
@@ -75,7 +75,7 @@ public class BLP extends JavaPlugin {
 			Bukkit.getPluginManager().disablePlugin(instance);
 		}
 	}
-	
+
 	public static BLP getInstance() {
 		return instance;
 	}
