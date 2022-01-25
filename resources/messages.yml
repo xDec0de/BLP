@@ -8,12 +8,12 @@
 
 BLP:
   Prefix: "&7[&b&lB&9&lLP&7]"
-  Error: "&8[&c&l!&8]"
-  NoPerm: "&7&l[&c&l!&7&l] &cInsufficient permissions &8(&e%perm%&8)&c."
+  Error: "&8&l[&4&l!&8&l]&c"
+  NoPerm: "%error% Insufficient permissions &8(&e%perm%&8)&c."
 Commands:
   Reload:
-    Success: "%prefix% &aconfig has been reloaded."
-    Usage: "%error% &cUsage&8: /&eblp reload"
+    Success: "%prefix% config has been reloaded."
+    Usage: "%error% Usage&8: /&eblp reload"
 Placeholders:
   IsTrue: "&atrue"
   IsFalse: "&cfalse"
