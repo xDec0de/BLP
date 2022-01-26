@@ -9,7 +9,6 @@ import es.xdec0de.blp.utils.UpdateChecker;
 import es.xdec0de.blp.utils.files.BLPCfg;
 import es.xdec0de.blp.utils.files.BLPMessages;
 import es.xdec0de.blp.utils.files.MessageUtils;
-import es.xdec0de.blp.utils.files.enums.BLPMessage;
 import es.xdec0de.blp.utils.files.enums.BLPSetting;
 
 public class BLP extends JavaPlugin {
@@ -79,15 +78,8 @@ public class BLP extends JavaPlugin {
 	}
 
 	private void checkUpdates() {
-		if(BLPCfg.getBoolean(BLPSetting.CHECK_UPDATES) && BLPCfg.getBoolean(BLPSetting.UPDATER_MESSAGE_CONSOLE)) {
-			String current = getDescription().getVersion();
-			UpdateChecker.getLatestVersion(version -> {
-				if(!current.equals(version))
-					MessageUtils.sendMessage(Bukkit.getConsoleSender(), BLPMessage.UPDATE_AVAILABLE_CONSOLE, "%current%", current, "%new%", version);
-				else
-					MessageUtils.sendMessage(Bukkit.getConsoleSender(), BLPMessage.UPDATE_LATEST_CONSOLE, "%current%", current);
-			});
-		}
+		if(BLPCfg.getBoolean(BLPSetting.CHECK_UPDATES) && BLPCfg.getBoolean(BLPSetting.UPDATER_MESSAGE_CONSOLE))
+			UpdateChecker.sendUpdate(Bukkit.getConsoleSender());
 	}
 
 	public static BLP getInstance() {

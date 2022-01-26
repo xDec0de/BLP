@@ -5,7 +5,8 @@ public enum BLPSetting {
 	CHECK_UPDATES("Updater.Check"),
 	UPDATER_MESSAGE_PLAYER("Updater.Message.Player"),
 	UPDATER_MESSAGE_CONSOLE("Updater.Message.Console"),
-	UPDATER_PERMISSION("Updater.Permission"),
+	UPDATE_NOTIFY_PERMISSION("Updater.Permission.Notify"),
+	UPDATE_CHECK_PERMISSION("Updater.Permission.Check"),
 
 	RELOAD_PERM("Reload.Permission");
 

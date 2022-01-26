@@ -11,9 +11,11 @@ BLP:
   Error: "&8&l[&4&l!&8&l]&c"
   NoPerm: "%error% Insufficient permissions &8(&e%perm%&8)&c."
 Commands:
-  Reload:
-    Success: "%prefix% config has been reloaded."
-    Usage: "%error% Usage&8: /&eblp reload"
+  BLP:
+    Reload:
+      Success: "%prefix% config has been reloaded."
+    InvalidArg: "%error% Invalid command argument, usage&8: /&eblp &8[&ereload&8/&echeckupdates&8]&c."
+    Usage: "%error% Usage&8: /&eblp &8[&ereload&8/&echeckupdates&8]&c."
 Placeholders:
   IsTrue: "&atrue"
   IsFalse: "&cfalse"

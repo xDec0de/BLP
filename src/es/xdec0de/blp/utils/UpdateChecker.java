@@ -7,6 +7,8 @@ import java.util.Scanner;
 import java.util.function.Consumer;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -22,7 +24,7 @@ public class UpdateChecker implements Listener {
 
 	private static final int resourceId = 74141;
 
-	public static void getLatestVersion(final Consumer<String> consumer) {
+	private static void getLatestVersion(final Consumer<String> consumer) {
 		Bukkit.getScheduler().runTaskAsynchronously(BLP.getInstance(), () -> {
 			try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + resourceId).openStream(); Scanner scanner = new Scanner(inputStream)) {
 				if (scanner.hasNext())
@@ -35,15 +37,24 @@ public class UpdateChecker implements Listener {
 
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
-		if(BLPCfg.getBoolean(BLPSetting.CHECK_UPDATES) && BLPCfg.getBoolean(BLPSetting.UPDATER_MESSAGE_PLAYER)) {
-			if(e.getPlayer().hasPermission(BLPCfg.getString(BLPSetting.UPDATER_PERMISSION))) {
-				getLatestVersion(version -> {
-					String current = BLP.getInstance().getDescription().getVersion();
-					if(!current.equalsIgnoreCase(version)) {
-						MessageUtils.sendMessage(e.getPlayer(), BLPMessage.UPDATE_AVAILABLE_PLAYER, "%current%", current, "%new%", version);
-					}
-				});
-			}
-		}
+		if(BLPCfg.getBoolean(BLPSetting.CHECK_UPDATES) && BLPCfg.getBoolean(BLPSetting.UPDATER_MESSAGE_PLAYER))
+			if(e.getPlayer().hasPermission(BLPCfg.getString(BLPSetting.UPDATE_NOTIFY_PERMISSION)))
+				sendUpdate(e.getPlayer());
+	}
+
+	public static void sendUpdate(CommandSender sender) {
+		getLatestVersion(version -> {
+			String current = BLP.getInstance().getDescription().getVersion();
+			if(!current.equalsIgnoreCase(version))
+				if(sender instanceof Player)
+					MessageUtils.sendMessage(sender, BLPMessage.UPDATE_AVAILABLE_PLAYER, "%current%", current, "%new%", version);
+				else
+					MessageUtils.sendMessage(sender, BLPMessage.UPDATE_AVAILABLE_CONSOLE, "%current%", current, "%new%", version);
+			else
+				if(sender instanceof Player)
+					MessageUtils.sendMessage(sender, BLPMessage.UPDATE_LATEST_PLAYER, "%current%", current);
+				else
+					MessageUtils.sendMessage(sender, BLPMessage.UPDATE_LATEST_CONSOLE, "%current%", current);
+		});
 	}
 }

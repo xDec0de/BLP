@@ -1,7 +1,7 @@
 # |------------------------------------------------------------------------| #
 # | #                                                                    # | #
 # | #                     --------------------------                     # | #
-# | #                     | BLP v2.0.0 by xDec0de_ |                     # | #
+# | #                     | BLP v2.1.0 by xDec0de_ |                     # | #
 # | #                     --------------------------                     # | #
 # | #                                                                    # | #
 # |------------------------------------------------------------------------| #
@@ -11,6 +11,8 @@ Updater:
   Message:
     Player: true
     Console: true
-  Permission: "blp.updates"
+  Permission:
+    Notify: "blp.updates"
+    Check: "blp.checkupdates"
 Reload:
   Permission: "blp.reload"

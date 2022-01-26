@@ -6,8 +6,10 @@ public enum BLPMessage {
 	ERROR("BLP.Error"),
 	NO_PERM("BLP.NoPerm"),
 	
-	RELOADED("Commands.Reload.Success"),
-	RELOAD_USAGE("Commands.Reload.Usage"),
+	RELOADED("Commands.BLP.Reload.Success"),
+
+	BLP_INVALID_ARG("Commands.BLP.InvalidArg"),
+	BLP_USAGE("Commands.BLP.Usage"),
 	
 	TRUE("Placeholders.IsTrue"),
 	FALSE("Placeholders.IsFalse"),
