@@ -78,9 +78,31 @@ class PAPI extends PlaceholderExpansion {
 		} else {
 			pos--; // Top 1 would actually be 0 on the top array.
 			str = str.substring(0, str.lastIndexOf("#"));
-			switch (str) {
-			case "toplevels_name":
-				return BattleLevelsAPI.getTopLevels().get(pos).getKey();
+			try {
+				switch (str) {
+				case "top_levels_name":
+					return BattleLevelsAPI.getTopLevels().get(pos).getKey();
+				case "top_levels_amount":
+					return String.valueOf(BattleLevelsAPI.getTopLevels().get(pos).getValue());
+				case "top_deaths_name":
+					return BattleLevelsAPI.getTopDeaths().get(pos).getKey();
+				case "top_deaths_amount":
+					return String.valueOf(BattleLevelsAPI.getTopDeaths().get(pos).getValue());
+				case "top_killstreak_name":
+					return BattleLevelsAPI.getTopHighestKillstreaks().get(pos).getKey();
+				case "top_killstreak_amount":
+					return String.valueOf(BattleLevelsAPI.getTopHighestKillstreaks().get(pos).getValue());
+				case "top_kills_name":
+					return BattleLevelsAPI.getTopKills().get(pos).getKey();
+				case "top_kills_amount":
+					return String.valueOf(BattleLevelsAPI.getTopKills().get(pos).getValue());
+				case "top_score_name":
+					return BattleLevelsAPI.getTopScores().get(pos).getKey();
+				case "top_score_amount":
+					return String.valueOf(BattleLevelsAPI.getTopScores().get(pos).getValue());
+				}
+			} catch(ArrayIndexOutOfBoundsException ex) {
+				return null;
 			}
 		}
 		return null;
