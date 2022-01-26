@@ -20,7 +20,8 @@ public class BLPMessages {
 		if (!(file = new File(BLP.getInstance().getDataFolder(), "messages.yml")).exists())
 			BLP.getInstance().saveResource("messages.yml", false); 
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
-		FileUtils.updateFile(file, "messages.yml");
+		if(FileUtils.updateFile(file, "messages.yml"))
+			reload();
 		MessageUtils.prefix = cfg.getString(BLPMessage.PREFIX.getPath());
 		MessageUtils.errorPrefix = cfg.getString(BLPMessage.ERROR.getPath());
 	}

@@ -28,7 +28,7 @@ class FileUtils {
 		}
 	}
 
-	static void updateFile(File file, String path) {
+	static boolean updateFile(File file, String path) {
 		try {
 			int changes = 0;
 			FileConfiguration old = Utf8YamlConfiguration.loadConfiguration(file);
@@ -38,7 +38,7 @@ class FileUtils {
 				updated.load(copyInputStreamToFile(plugin.getDataFolder()+ "/"+path, plugin.getResource(path)));
 			else {
 				MessageUtils.logColRep("%prefix% Could not update &6"+path);
-				return;
+				return false;
 			}
 			Set<String> oldKeys = old.getKeys(true);
 			Set<String> updKeys = updated.getKeys(true);
@@ -53,10 +53,14 @@ class FileUtils {
 					changes++;
 				}
 			old.save(plugin.getDataFolder() + "/"+path);
-			if(changes != 0)
+			if(changes != 0) {
 				MessageUtils.logColRep("%prefix% &6"+path+" &7has been updated to &ev"+BLP.getInstance().getDescription().getVersion()+"&7 with &b"+changes+" &7changes.");
+				return true;
+			}
+			return false;
 		} catch(InvalidConfigurationException | IOException ex) {
 			MessageUtils.logColRep("%prefix% Could not update &6"+path);
+			return false;
 		}
 	}
 }

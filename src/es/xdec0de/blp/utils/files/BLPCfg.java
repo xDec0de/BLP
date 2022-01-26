@@ -20,7 +20,8 @@ public class BLPCfg {
 		if (!(file = new File(BLP.getInstance().getDataFolder(), "config.yml")).exists())
 			BLP.getInstance().saveResource("config.yml", false); 
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
-		FileUtils.updateFile(file, "config.yml");
+		if(FileUtils.updateFile(file, "config.yml"))
+			reload();
 	}
 
 	public static void save() {
