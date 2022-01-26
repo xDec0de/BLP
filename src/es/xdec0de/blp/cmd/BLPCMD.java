@@ -7,11 +7,12 @@ import org.bukkit.command.CommandSender;
 import es.xdec0de.blp.utils.files.BLPCfg;
 import es.xdec0de.blp.utils.files.MessageUtils;
 import es.xdec0de.blp.utils.files.enums.BLPMessage;
+import es.xdec0de.blp.utils.files.enums.BLPSetting;
 
 public class BLPCMD implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sndr, Command cmd, String label, String[] args) {
-		if(sndr.hasPermission(BLPCfg.get().getString("Permissions.Reload"))) {
+		if(sndr.hasPermission(BLPCfg.getString(BLPSetting.RELOAD_PERM))) {
 			if(args.length == 1) {
 				BLPCfg.reload();
 				MessageUtils.sendMessage(sndr, BLPMessage.RELOADED);
