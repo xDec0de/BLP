@@ -3,10 +3,12 @@ package es.xdec0de.blp.utils.files;
 import java.io.File;
 import java.io.IOException;
 
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import es.xdec0de.blp.BLP;
+import es.xdec0de.blp.utils.files.enums.BLPMessage;
 import es.xdec0de.blp.utils.files.enums.BLPSetting;
 
 public class BLPCfg {
@@ -46,5 +48,13 @@ public class BLPCfg {
 
 	public static boolean getBoolean(BLPSetting setting) {
 		return cfg.getBoolean(setting.getPath());
+	}
+
+	public static boolean hasPermission(BLPSetting permission, CommandSender sender, boolean message) {
+		if(sender.hasPermission(cfg.getString(permission.getPath())))
+			return true;
+		if(message)
+			MessageUtils.sendMessage(sender, BLPMessage.NO_PERM);
+		return false;
 	}
 }

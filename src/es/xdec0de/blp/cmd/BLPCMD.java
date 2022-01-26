@@ -16,17 +16,14 @@ public class BLPCMD implements CommandExecutor {
 		if(args.length == 1) {
 			switch(args[0].toLowerCase()) { // I don't like java 8 switches :(
 			case "reload": case "rl":
-				if(sndr.hasPermission(BLPCfg.getString(BLPSetting.RELOAD_PERM))) {
+				if(BLPCfg.hasPermission(BLPSetting.RELOAD_PERMISSION, sndr, true)) {
 					BLPCfg.reload();
 					MessageUtils.sendMessage(sndr, BLPMessage.RELOADED);
-				} else
-					MessageUtils.sendMessage(sndr, BLPMessage.NO_PERM);
+				}
 				break;
 			case "checkupdate": case "checkupdates":
-				if(sndr.hasPermission(BLPCfg.getString(BLPSetting.UPDATE_CHECK_PERMISSION)))
+				if(BLPCfg.hasPermission(BLPSetting.UPDATE_CHECK_PERMISSION, sndr, true))
 					UpdateChecker.sendUpdate(sndr);
-				else
-					MessageUtils.sendMessage(sndr, BLPMessage.NO_PERM);
 				break;
 			default:
 				MessageUtils.sendMessage(sndr, BLPMessage.BLP_INVALID_ARG);

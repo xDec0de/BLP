@@ -8,7 +8,7 @@ public enum BLPSetting {
 	UPDATE_NOTIFY_PERMISSION("Updater.Permission.Notify"),
 	UPDATE_CHECK_PERMISSION("Updater.Permission.Check"),
 
-	RELOAD_PERM("Reload.Permission");
+	RELOAD_PERMISSION("Reload.Permission");
 
 	private String path;
 

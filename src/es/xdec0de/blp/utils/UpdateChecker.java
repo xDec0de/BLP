@@ -38,7 +38,7 @@ public class UpdateChecker implements Listener {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
 		if(BLPCfg.getBoolean(BLPSetting.CHECK_UPDATES) && BLPCfg.getBoolean(BLPSetting.UPDATER_MESSAGE_PLAYER))
-			if(e.getPlayer().hasPermission(BLPCfg.getString(BLPSetting.UPDATE_NOTIFY_PERMISSION)))
+			if(BLPCfg.hasPermission(BLPSetting.UPDATE_NOTIFY_PERMISSION, e.getPlayer(), false))
 				sendUpdate(e.getPlayer());
 	}
 
