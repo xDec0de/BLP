@@ -11,6 +11,7 @@ public enum BLPMessage {
 	
 	TRUE("Placeholders.IsTrue"),
 	FALSE("Placeholders.IsFalse"),
+	INVALID_TOP("Placeholders.InvalidTop"),
 	
 	UPDATE_AVAILABLE_PLAYER("Updater.Available.Player"),
 	UPDATE_AVAILABLE_CONSOLE("Updater.Available.Console"),

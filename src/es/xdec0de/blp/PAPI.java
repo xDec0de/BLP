@@ -102,7 +102,7 @@ class PAPI extends PlaceholderExpansion {
 					return String.valueOf(BattleLevelsAPI.getTopScores().get(pos).getValue());
 				}
 			} catch(IndexOutOfBoundsException ex) {
-				return null;
+				return MessageUtils.getMessage(BLPMessage.INVALID_TOP);
 			}
 		}
 		return null;
