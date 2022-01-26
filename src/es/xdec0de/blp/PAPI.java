@@ -101,7 +101,7 @@ class PAPI extends PlaceholderExpansion {
 				case "top_score_amount":
 					return String.valueOf(BattleLevelsAPI.getTopScores().get(pos).getValue());
 				}
-			} catch(ArrayIndexOutOfBoundsException ex) {
+			} catch(IndexOutOfBoundsException ex) {
 				return null;
 			}
 		}
