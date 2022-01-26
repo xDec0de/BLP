@@ -76,7 +76,8 @@ class PAPI extends PlaceholderExpansion {
 				return String.valueOf(BattleLevelsAPI.getGlobalBoosterInMinutes());
 			}
 		} else {
-			str = str.substring(0, str.lastIndexOf("#") - 1);
+			pos--; // Top 1 would actually be 0 on the top array.
+			str = str.substring(0, str.lastIndexOf("#"));
 			switch (str) {
 			case "toplevels_name":
 				return BattleLevelsAPI.getTopLevels().get(pos).getKey();
