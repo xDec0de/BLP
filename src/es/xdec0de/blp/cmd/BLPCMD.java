@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 
 import es.xdec0de.blp.utils.UpdateChecker;
 import es.xdec0de.blp.utils.files.BLPCfg;
+import es.xdec0de.blp.utils.files.BLPMessages;
 import es.xdec0de.blp.utils.files.MessageUtils;
 import es.xdec0de.blp.utils.files.enums.BLPMessage;
 import es.xdec0de.blp.utils.files.enums.BLPSetting;
@@ -18,6 +19,7 @@ public class BLPCMD implements CommandExecutor {
 			case "reload": case "rl":
 				if(BLPCfg.hasPermission(BLPSetting.RELOAD_PERMISSION, sndr, true)) {
 					BLPCfg.reload();
+					BLPMessages.reload();
 					MessageUtils.sendMessage(sndr, BLPMessage.RELOADED);
 				}
 				break;

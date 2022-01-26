@@ -13,7 +13,7 @@ BLP:
 Commands:
   BLP:
     Reload:
-      Success: "%prefix% config has been reloaded."
+      Success: "%prefix% Reloaded plugin files."
     InvalidArg: "%error% Invalid command argument, usage&8: /&eblp &8[&ereload&8/&echeckupdates&8]&c."
     Usage: "%error% Usage&8: /&eblp &8[&ereload&8/&echeckupdates&8]&c."
 Placeholders:
