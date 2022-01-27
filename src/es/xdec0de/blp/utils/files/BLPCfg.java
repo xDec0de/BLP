@@ -15,18 +15,18 @@ public class BLPCfg {
 	private static FileConfiguration cfg;
 	private static File file;
 
-	public static void setup() {
+	public static void setup(boolean isByReload) {
 		if (!BLP.getInstance().getDataFolder().exists())
 			BLP.getInstance().getDataFolder().mkdir(); 
 		if (!(file = new File(BLP.getInstance().getDataFolder(), "config.yml")).exists())
 			BLP.getInstance().saveResource("config.yml", false); 
-		reload(true);
+		reload(true, isByReload);
 	}
 
-	private static void reload(boolean update) {
+	private static void reload(boolean update, boolean isByReload) {
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
-		if(update && FileUtils.updateFile(file, "config.yml"))
-			reload(false);
+		if(update && FileUtils.updateFile(file, "config.yml", isByReload))
+			reload(false, isByReload);
 	}
 
 	public static boolean getBoolean(BLPSetting setting) {

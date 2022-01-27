@@ -28,7 +28,7 @@ class FileUtils {
 		}
 	}
 
-	static boolean updateFile(File file, String path) {
+	static boolean updateFile(File file, String path, boolean isByReload) {
 		try {
 			int changes = 0;
 			FileConfiguration old = Utf8YamlConfiguration.loadConfiguration(file);
@@ -54,7 +54,10 @@ class FileUtils {
 				}
 			old.save(plugin.getDataFolder() + "/"+path);
 			if(changes != 0) {
-				MessageUtils.logColRep("%prefix% &6"+path+" &7has been updated to &ev"+BLP.getInstance().getDescription().getVersion()+"&7 with &b"+changes+" &7changes.");
+				if(isByReload)
+					MessageUtils.logColRep("%prefix% &6"+path+" &7has been reloaded with &b"+changes+" &7changes.");
+				else
+					MessageUtils.logColRep("%prefix% &6"+path+" &7has been updated to &ev"+BLP.getInstance().getDescription().getVersion()+"&7 with &b"+changes+" &7changes.");
 				return true;
 			}
 			return false;

@@ -48,8 +48,8 @@ public class BLP extends JavaPlugin {
 
 	private void executeEnable() {
 		instance = this;
-		BLPCfg.setup();
-		BLPMessages.setup();
+		BLPCfg.setup(false);
+		BLPMessages.setup(false);
 		getCommand("blp").setExecutor(new BLPCMD());
 		getServer().getPluginManager().registerEvents(new UpdateChecker(), instance);
 	}
