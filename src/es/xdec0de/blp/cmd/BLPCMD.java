@@ -18,8 +18,8 @@ public class BLPCMD implements CommandExecutor {
 			switch(args[0].toLowerCase()) { // I don't like java 8 switches :(
 			case "reload": case "rl":
 				if(BLPCfg.hasPermission(BLPSetting.RELOAD_PERMISSION, sndr, true)) {
-					BLPCfg.reload();
-					BLPMessages.reload();
+					BLPCfg.setup();
+					BLPMessages.setup(); // setup is called instead of reload as setup already uses reload but also creates the file if it doesn't exist.
 					MessageUtils.sendMessage(sndr, BLPMessage.RELOADED);
 				}
 				break;

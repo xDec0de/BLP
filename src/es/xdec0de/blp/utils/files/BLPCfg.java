@@ -21,9 +21,7 @@ public class BLPCfg {
 			BLP.getInstance().getDataFolder().mkdir(); 
 		if (!(file = new File(BLP.getInstance().getDataFolder(), "config.yml")).exists())
 			BLP.getInstance().saveResource("config.yml", false); 
-		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
-		if(FileUtils.updateFile(file, "config.yml"))
-			reload();
+		reload(true);
 	}
 
 	public static void save() {
@@ -38,8 +36,10 @@ public class BLPCfg {
 		return cfg;
 	}
 
-	public static void reload() {
+	private static void reload(boolean update) {
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
+		if(update && FileUtils.updateFile(file, "config.yml"))
+			reload(false);
 	}
 
 	public static String getString(BLPSetting setting) {

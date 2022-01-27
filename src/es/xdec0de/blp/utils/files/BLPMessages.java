@@ -19,11 +19,7 @@ public class BLPMessages {
 			BLP.getInstance().getDataFolder().mkdir(); 
 		if (!(file = new File(BLP.getInstance().getDataFolder(), "messages.yml")).exists())
 			BLP.getInstance().saveResource("messages.yml", false); 
-		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
-		if(FileUtils.updateFile(file, "messages.yml"))
-			reload();
-		MessageUtils.prefix = cfg.getString(BLPMessage.PREFIX.getPath());
-		MessageUtils.errorPrefix = cfg.getString(BLPMessage.ERROR.getPath());
+		reload(true);
 	}
 
 	public static void save() {
@@ -38,9 +34,11 @@ public class BLPMessages {
 		return cfg;
 	}
 
-	public static void reload() {
+	private static void reload(boolean update) {
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
 		MessageUtils.prefix = cfg.getString(BLPMessage.PREFIX.getPath());
 		MessageUtils.errorPrefix = cfg.getString(BLPMessage.ERROR.getPath());
+		if(update && FileUtils.updateFile(file, "messages.yml")) // If update is false, the update won't be called because the and operator returns false.
+			reload(false);
 	}
 }
