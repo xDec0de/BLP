@@ -1,7 +1,6 @@
 package es.xdec0de.blp.utils.files;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -22,23 +21,15 @@ public class BLPMessages {
 		reload(true);
 	}
 
-	public static void save() {
-		try {
-			cfg.save(file);
-		} catch (IOException e) {
-			MessageUtils.logCol("&e&lBattleLevelsPAPI: &cCould not save &6messages.yml&c file.");
-		}
-	}
-
-	public static FileConfiguration get() {
-		return cfg;
-	}
-
 	private static void reload(boolean update) {
 		cfg = (FileConfiguration)YamlConfiguration.loadConfiguration(file);
 		MessageUtils.prefix = cfg.getString(BLPMessage.PREFIX.getPath());
 		MessageUtils.errorPrefix = cfg.getString(BLPMessage.ERROR.getPath());
 		if(update && FileUtils.updateFile(file, "messages.yml")) // If update is false, the update won't be called because the and operator returns false.
 			reload(false);
+	}
+
+	static FileConfiguration get() {
+		return cfg;
 	}
 }
