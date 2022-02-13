@@ -9,30 +9,29 @@ import es.xdec0de.blp.utils.files.BLPCfg;
 import es.xdec0de.blp.utils.files.BLPMessage;
 import es.xdec0de.blp.utils.files.BLPMessages;
 import es.xdec0de.blp.utils.files.BLPSetting;
-import es.xdec0de.blp.utils.files.MessageUtils;
 
 public class BLPCMD implements CommandExecutor {
 
-	public boolean onCommand(CommandSender sndr, Command cmd, String label, String[] args) {
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(args.length == 1) {
 			switch(args[0].toLowerCase()) { // I don't like java 8 switches :(
 			case "reload": case "rl":
-				if(BLPSetting.RELOAD_PERMISSION.asPermission(sndr, true)) {
+				if(BLPSetting.RELOAD_PERMISSION.asPermission(sender, true)) {
 					BLPCfg.setup(true);
 					BLPMessages.setup(true); // setup is called instead of reload as setup already uses reload but also creates the file if it doesn't exist.
-					MessageUtils.sendMessage(sndr, BLPMessage.RELOADED);
+					BLPMessage.RELOADED.send(sender);
 				}
 				break;
 			case "checkupdate": case "checkupdates":
-				if(BLPSetting.UPDATE_CHECK_PERMISSION.asPermission(sndr, true))
-					UpdateChecker.sendUpdate(sndr);
+				if(BLPSetting.UPDATE_CHECK_PERMISSION.asPermission(sender, true))
+					UpdateChecker.sendUpdate(sender);
 				break;
 			default:
-				MessageUtils.sendMessage(sndr, BLPMessage.BLP_INVALID_ARG);
+				BLPMessage.BLP_INVALID_ARG.send(sender);
 				break;
 			}
 		} else
-			MessageUtils.sendMessage(sndr, BLPMessage.BLP_USAGE);
+			BLPMessage.BLP_USAGE.send(sender);
 		return true;
 	}
 }

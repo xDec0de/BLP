@@ -16,7 +16,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import es.xdec0de.blp.BLP;
 import es.xdec0de.blp.utils.files.BLPMessage;
 import es.xdec0de.blp.utils.files.BLPSetting;
-import es.xdec0de.blp.utils.files.MessageUtils;
 import net.md_5.bungee.api.ChatColor;
 
 public class UpdateChecker implements Listener {
@@ -46,14 +45,14 @@ public class UpdateChecker implements Listener {
 			String current = BLP.getInstance().getDescription().getVersion();
 			if(!current.equalsIgnoreCase(version))
 				if(sender instanceof Player)
-					MessageUtils.sendMessage(sender, BLPMessage.UPDATE_AVAILABLE_PLAYER, "%current%", current, "%new%", version);
+					BLPMessage.UPDATE_AVAILABLE_PLAYER.send(sender, "%current%", current, "%new%", version);
 				else
-					MessageUtils.sendMessage(sender, BLPMessage.UPDATE_AVAILABLE_CONSOLE, "%current%", current, "%new%", version);
+					BLPMessage.UPDATE_AVAILABLE_CONSOLE.send(sender, "%current%", current, "%new%", version);
 			else
 				if(sender instanceof Player)
-					MessageUtils.sendMessage(sender, BLPMessage.UPDATE_LATEST_PLAYER, "%current%", current);
+					BLPMessage.UPDATE_LATEST_PLAYER.send(sender, "%current%", current);
 				else
-					MessageUtils.sendMessage(sender, BLPMessage.UPDATE_LATEST_CONSOLE, "%current%", current);
+					BLPMessage.UPDATE_LATEST_CONSOLE.send(sender, "%current%", current);
 		});
 	}
 }

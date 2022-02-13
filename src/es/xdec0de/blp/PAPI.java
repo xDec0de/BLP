@@ -49,7 +49,7 @@ class PAPI extends PlaceholderExpansion {
 			case "neededfornext":
 				return String.valueOf(BattleLevelsAPI.getNeededForNext(player.getUniqueId()));
 			case "globalboosterenabled":
-				return BattleLevelsAPI.isGlobalBoosterEnabled() ? MessageUtils.getMessage(BLPMessage.TRUE) : MessageUtils.getMessage(BLPMessage.FALSE);
+				return BattleLevelsAPI.isGlobalBoosterEnabled() ? BLPMessage.TRUE.asString() : BLPMessage.FALSE.asString();
 			case "deaths":
 				return String.valueOf(BattleLevelsAPI.getDeaths(player.getUniqueId()));
 			case "killstreak":
@@ -69,7 +69,7 @@ class PAPI extends PlaceholderExpansion {
 			case "topstreak":
 				return String.valueOf(BattleLevelsAPI.getTopKillstreak(player.getUniqueId()));
 			case "boosterenabled":
-				return BattleLevelsAPI.hasBooster(player.getUniqueId()) ? MessageUtils.getMessage(BLPMessage.TRUE) : MessageUtils.getMessage(BLPMessage.FALSE);
+				return BattleLevelsAPI.hasBooster(player.getUniqueId()) ? BLPMessage.TRUE.asString() : BLPMessage.FALSE.asString();
 			case "neededfornextremaining":
 				return String.valueOf(BattleLevelsAPI.getNeededForNextRemaining(player.getUniqueId()));
 			case "globalbooster":
@@ -102,7 +102,7 @@ class PAPI extends PlaceholderExpansion {
 					return String.valueOf(BattleLevelsAPI.getTopScores().get(pos).getValue());
 				}
 			} catch(IndexOutOfBoundsException ex) {
-				return MessageUtils.getMessage(BLPMessage.INVALID_TOP);
+				return BLPMessage.INVALID_TOP.asString();
 			}
 		}
 		return null;

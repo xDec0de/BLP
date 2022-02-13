@@ -34,7 +34,7 @@ public enum BLPSetting {
 		if(sender.hasPermission(BLPCfg.cfg.getString(path)))
 			return true;
 		if(message)
-			MessageUtils.sendMessage(sender, BLPMessage.NO_PERM);
+			BLPMessage.NO_PERM.send(sender);
 		return false;
 	}
 }
