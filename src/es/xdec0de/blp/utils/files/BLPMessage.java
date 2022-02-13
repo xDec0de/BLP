@@ -69,7 +69,7 @@ public enum BLPMessage {
 	 */
 	public void send(CommandSender sender) {
 		String send = asString();
-		if(!send.isEmpty())
+		if(send != null && !send.isEmpty())
 			sender.sendMessage(send);
 	}
 
@@ -84,7 +84,7 @@ public enum BLPMessage {
 	 */
 	public void send(CommandSender sender, String... replacements) {
 		String send = asString(replacements);
-		if(!send.isEmpty())
+		if(send != null && !send.isEmpty())
 			sender.sendMessage(send);
 	}
 }

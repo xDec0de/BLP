@@ -61,9 +61,10 @@ public class MessageUtils {
 	 * @param str The string to send
 	 */
 	public static void logCol(String str) {
+		if(str == null)
+			str = "null";
 		if(!str.isEmpty())
 			Bukkit.getConsoleSender().sendMessage(applyColor(str));
-		// It's not necessary to null check as applyColor does it.
 	}
 
 	/**
@@ -73,8 +74,9 @@ public class MessageUtils {
 	 * @param str The string to send
 	 */
 	public static void logColRep(String str) {
+		if(str == null)
+			str = "null";
 		if(!str.isEmpty())
 			Bukkit.getConsoleSender().sendMessage(applyColor(new Replacer("%prefix%", prefix, "%error%", errorPrefix).replaceAt(str)));
-		// It's not necessary to null check as applyColor does it.
 	}
 }
