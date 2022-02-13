@@ -6,7 +6,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import es.xdec0de.blp.BLP;
-import es.xdec0de.blp.utils.files.enums.BLPMessage;
 
 public class BLPMessages {
 

@@ -3,8 +3,8 @@ package es.xdec0de.blp;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import es.xdec0de.blp.utils.files.BLPMessage;
 import es.xdec0de.blp.utils.files.MessageUtils;
-import es.xdec0de.blp.utils.files.enums.BLPMessage;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.robin.battlelevels.api.BattleLevelsAPI;
 

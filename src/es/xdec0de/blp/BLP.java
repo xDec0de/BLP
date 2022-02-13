@@ -9,8 +9,8 @@ import es.xdec0de.blp.cmd.BLPTabCompleter;
 import es.xdec0de.blp.utils.UpdateChecker;
 import es.xdec0de.blp.utils.files.BLPCfg;
 import es.xdec0de.blp.utils.files.BLPMessages;
+import es.xdec0de.blp.utils.files.BLPSetting;
 import es.xdec0de.blp.utils.files.MessageUtils;
-import es.xdec0de.blp.utils.files.enums.BLPSetting;
 
 public class BLP extends JavaPlugin {
 
@@ -80,7 +80,7 @@ public class BLP extends JavaPlugin {
 	}
 
 	private void checkUpdates() {
-		if(BLPCfg.getBoolean(BLPSetting.CHECK_UPDATES) && BLPCfg.getBoolean(BLPSetting.UPDATER_MESSAGE_CONSOLE))
+		if(BLPSetting.CHECK_UPDATES.asBoolean() && BLPSetting.UPDATER_MESSAGE_CONSOLE.asBoolean())
 			UpdateChecker.sendUpdate(Bukkit.getConsoleSender());
 	}
 

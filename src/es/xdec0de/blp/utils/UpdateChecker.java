@@ -14,10 +14,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import es.xdec0de.blp.BLP;
-import es.xdec0de.blp.utils.files.BLPCfg;
+import es.xdec0de.blp.utils.files.BLPMessage;
+import es.xdec0de.blp.utils.files.BLPSetting;
 import es.xdec0de.blp.utils.files.MessageUtils;
-import es.xdec0de.blp.utils.files.enums.BLPMessage;
-import es.xdec0de.blp.utils.files.enums.BLPSetting;
 import net.md_5.bungee.api.ChatColor;
 
 public class UpdateChecker implements Listener {
@@ -37,8 +36,8 @@ public class UpdateChecker implements Listener {
 
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
-		if(BLPCfg.getBoolean(BLPSetting.CHECK_UPDATES) && BLPCfg.getBoolean(BLPSetting.UPDATER_MESSAGE_PLAYER))
-			if(BLPCfg.hasPermission(BLPSetting.UPDATE_NOTIFY_PERMISSION, e.getPlayer(), false))
+		if(BLPSetting.CHECK_UPDATES.asBoolean() && BLPSetting.UPDATER_MESSAGE_PLAYER.asBoolean())
+			if(BLPSetting.UPDATE_NOTIFY_PERMISSION.asPermission(e.getPlayer(), false))
 				sendUpdate(e.getPlayer());
 	}
 
