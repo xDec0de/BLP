@@ -1,7 +1,5 @@
 package es.xdec0de.blp.utils.files;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,23 +37,7 @@ public class MessageUtils {
 					+ COLOR_CHAR + group.charAt(4) + COLOR_CHAR + group.charAt(5));
 		}
 		return ChatColor.translateAlternateColorCodes('&', matcher.appendTail(buffer).toString());
-	}
-
-	/**
-	 * Applies color to the specified list of strings, with hexadecimal color codes support.
-	 * 
-	 * @param list The string list to color
-	 * 
-	 * @return The string list, colored
-	 */
-	public static List<String> applyColor(List<String> list) {
-		if(list == null)
-			return new LinkedList<String>();
-		List<String> res = new LinkedList<String>();
-		for(String str : list)
-			res.add(applyColor(str));
-		return res;
-	}
+	}	
 
 	// Loggers //
 
@@ -93,19 +75,6 @@ public class MessageUtils {
 	public static void logColRep(String str) {
 		if(!str.isEmpty())
 			Bukkit.getConsoleSender().sendMessage(applyColor(new Replacer("%prefix%", prefix, "%error%", errorPrefix).replaceAt(str)));
-		// It's not necessary to null check as applyColor does it.
-	}
-
-	/**
-	 * Applies color ({@link #applyColor(String)}) and replacements ({@link Replacer}) to the specified string and then sends it to the console, 
-	 * if the string is null, "null" will be sent, if the string is empty, nothing will be done.
-	 * 
-	 * @param str The string to send ({@link #applyColor(String)})
-	 * @replacements The replacements to apply to the string ({@link Replacer})
-	 */
-	public static void logCol(String str, String... replacements) {
-		if(!str.isEmpty())
-			Bukkit.getConsoleSender().sendMessage(applyColor(new Replacer("%prefix%", prefix, "%error%", errorPrefix).add(replacements).replaceAt(str)));
 		// It's not necessary to null check as applyColor does it.
 	}
 }
