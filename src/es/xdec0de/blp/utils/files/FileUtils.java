@@ -33,9 +33,9 @@ class FileUtils {
 			int changes = 0;
 			FileConfiguration old = Utf8YamlConfiguration.loadConfiguration(file);
 			Utf8YamlConfiguration updated = new Utf8YamlConfiguration();
-			JavaPlugin plugin = BLP.getInstance();
-			if(plugin.getResource(path) != null)
-				updated.load(copyInputStreamToFile(plugin.getDataFolder()+ "/"+path, plugin.getResource(path)));
+			JavaPlugin blp = BLP.getPlugin(BLP.class);
+			if(blp.getResource(path) != null)
+				updated.load(copyInputStreamToFile(blp.getDataFolder()+ "/"+path, blp.getResource(path)));
 			else {
 				MessageUtils.logColRep("%prefix% Could not update &6"+path);
 				return false;
@@ -52,12 +52,12 @@ class FileUtils {
 					old.set(str, updated.get(str));
 					changes++;
 				}
-			old.save(plugin.getDataFolder() + "/"+path);
+			old.save(blp.getDataFolder() + "/"+path);
 			if(changes != 0) {
 				if(isByReload)
 					MessageUtils.logColRep("%prefix% &6"+path+" &7has been reloaded with &b"+changes+" &7changes.");
 				else
-					MessageUtils.logColRep("%prefix% &6"+path+" &7has been updated to &ev"+BLP.getInstance().getDescription().getVersion()+"&7 with &b"+changes+" &7changes.");
+					MessageUtils.logColRep("%prefix% &6"+path+" &7has been updated to &ev"+blp.getDescription().getVersion()+"&7 with &b"+changes+" &7changes.");
 				return true;
 			}
 			return false;

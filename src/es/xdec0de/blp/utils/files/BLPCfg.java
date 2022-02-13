@@ -13,10 +13,11 @@ public class BLPCfg {
 	private static File file;
 
 	public static void setup(boolean isByReload) {
-		if (!BLP.getInstance().getDataFolder().exists())
-			BLP.getInstance().getDataFolder().mkdir(); 
-		if (!(file = new File(BLP.getInstance().getDataFolder(), "config.yml")).exists())
-			BLP.getInstance().saveResource("config.yml", false); 
+		BLP blp = BLP.getPlugin(BLP.class);
+		if (!blp.getDataFolder().exists())
+			blp.getDataFolder().mkdir(); 
+		if (!(file = new File(blp.getDataFolder(), "config.yml")).exists())
+			blp.saveResource("config.yml", false); 
 		reload(true, isByReload);
 	}
 

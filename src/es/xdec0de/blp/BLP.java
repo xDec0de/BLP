@@ -14,8 +14,6 @@ import es.xdec0de.blp.utils.files.MessageUtils;
 
 public class BLP extends JavaPlugin {
 
-	private static BLP instance;
-
 	public void onEnable() {
 		executeEnable();
 		MessageUtils.log(" ");
@@ -25,7 +23,7 @@ public class BLP extends JavaPlugin {
 		MessageUtils.log(" ");
 		MessageUtils.logCol("  &b- &7Author&8: &bxDec0de_");
 		MessageUtils.log(" ");
-		MessageUtils.logCol("  &b- &7Version: &b"+instance.getDescription().getVersion());
+		MessageUtils.logCol("  &b- &7Version: &b"+getDescription().getVersion());
 		MessageUtils.log(" ");
 		MessageUtils.logCol("&8|------------------------------------------>");
 		MessageUtils.log(" ");
@@ -41,19 +39,18 @@ public class BLP extends JavaPlugin {
 		MessageUtils.log(" ");
 		MessageUtils.logCol("  &b- &7Author&8: &bxDec0de_");
 		MessageUtils.log(" ");
-		MessageUtils.logCol("  &b- &7Version: &b"+instance.getDescription().getVersion());
+		MessageUtils.logCol("  &b- &7Version: &b"+getDescription().getVersion());
 		MessageUtils.log(" ");
 		MessageUtils.logCol("&8|------------------------------------------>");
 		MessageUtils.log(" ");
 	}
 
 	private void executeEnable() {
-		instance = this;
 		BLPCfg.setup(false);
 		BLPMessages.setup(false);
 		getCommand("blp").setExecutor(new BLPCMD());
 		getCommand("blp").setTabCompleter(new BLPTabCompleter());
-		getServer().getPluginManager().registerEvents(new UpdateChecker(), instance);
+		getServer().getPluginManager().registerEvents(new UpdateChecker(), this);
 	}
 	
 	private boolean checkDependencies() {
@@ -64,7 +61,7 @@ public class BLP extends JavaPlugin {
 		} else {
 			MessageUtils.logCol("&4- &eBattleLevels &cNOT detected, disabling plugin.");
 			MessageUtils.log(" ");
-			Bukkit.getPluginManager().disablePlugin(instance);
+			Bukkit.getPluginManager().disablePlugin(this);
 			return false;
 		}
 		Plugin papi = Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
@@ -73,7 +70,7 @@ public class BLP extends JavaPlugin {
 		else {
 			MessageUtils.logCol("&4- &ePlaceholderAPI &cNOT detected, disabling plugin.");
 			MessageUtils.log(" ");
-			Bukkit.getPluginManager().disablePlugin(instance);
+			Bukkit.getPluginManager().disablePlugin(this);
 			return false;
 		}
 		return true;
@@ -82,9 +79,5 @@ public class BLP extends JavaPlugin {
 	private void checkUpdates() {
 		if(BLPSetting.CHECK_UPDATES.asBoolean() && BLPSetting.UPDATER_MESSAGE_CONSOLE.asBoolean())
 			UpdateChecker.sendUpdate(Bukkit.getConsoleSender());
-	}
-
-	public static BLP getInstance() {
-		return instance;
 	}
 }

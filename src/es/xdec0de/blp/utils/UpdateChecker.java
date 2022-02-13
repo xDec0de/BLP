@@ -23,7 +23,7 @@ public class UpdateChecker implements Listener {
 	private static final int resourceId = 74141;
 
 	private static void getLatestVersion(final Consumer<String> consumer) {
-		Bukkit.getScheduler().runTaskAsynchronously(BLP.getInstance(), () -> {
+		Bukkit.getScheduler().runTaskAsynchronously(BLP.getPlugin(BLP.class), () -> {
 			try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + resourceId).openStream(); Scanner scanner = new Scanner(inputStream)) {
 				if (scanner.hasNext())
 					consumer.accept(scanner.next());
@@ -42,7 +42,7 @@ public class UpdateChecker implements Listener {
 
 	public static void sendUpdate(CommandSender sender) {
 		getLatestVersion(version -> {
-			String current = BLP.getInstance().getDescription().getVersion();
+			String current = BLP.getPlugin(BLP.class).getDescription().getVersion();
 			if(!current.equalsIgnoreCase(version))
 				if(sender instanceof Player)
 					BLPMessage.UPDATE_AVAILABLE_PLAYER.send(sender, "%current%", current, "%new%", version);

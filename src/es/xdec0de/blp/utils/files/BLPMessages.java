@@ -13,10 +13,11 @@ public class BLPMessages {
 	private static File file;
 
 	public static void setup(boolean isByReload) {
-		if (!BLP.getInstance().getDataFolder().exists())
-			BLP.getInstance().getDataFolder().mkdir(); 
-		if (!(file = new File(BLP.getInstance().getDataFolder(), "messages.yml")).exists())
-			BLP.getInstance().saveResource("messages.yml", false); 
+		BLP blp = BLP.getPlugin(BLP.class);
+		if (!blp.getDataFolder().exists())
+			blp.getDataFolder().mkdir(); 
+		if (!(file = new File(blp.getDataFolder(), "messages.yml")).exists())
+			blp.saveResource("messages.yml", false); 
 		reload(true, isByReload);
 	}
 

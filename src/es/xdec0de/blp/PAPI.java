@@ -25,15 +25,15 @@ class PAPI extends PlaceholderExpansion {
 	}
 
 	public String getAuthor() {
-		return BLP.getInstance().getDescription().getAuthors().toString();
+		return BLP.getPlugin(BLP.class).getDescription().getAuthors().toString();
 	}
 
 	public String getIdentifier() {
-		return BLP.getInstance().getDescription().getName();
+		return BLP.getPlugin(BLP.class).getDescription().getName();
 	}
 
 	public String getVersion() {
-		return BLP.getInstance().getDescription().getVersion();
+		return BLP.getPlugin(BLP.class).getDescription().getVersion();
 	}
 
 	public String onPlaceholderRequest(Player player, String identifier) {
