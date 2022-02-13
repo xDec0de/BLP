@@ -12,7 +12,7 @@ public class BLPMessages {
 
 	private static FileConfiguration cfg;
 	private static File file;
-	
+
 	public static void setup(boolean isByReload) {
 		if (!BLP.getInstance().getDataFolder().exists())
 			BLP.getInstance().getDataFolder().mkdir(); 
