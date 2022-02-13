@@ -40,6 +40,11 @@ public class UpdateChecker implements Listener {
 				sendUpdate(e.getPlayer());
 	}
 
+	/**
+	 * Sends the update message to the specified sender, note that this checks for updates when called.
+	 * 
+	 * @param sender The sender to send the update message.
+	 */
 	public static void sendUpdate(CommandSender sender) {
 		getLatestVersion(version -> {
 			String current = BLP.getPlugin(BLP.class).getDescription().getVersion();

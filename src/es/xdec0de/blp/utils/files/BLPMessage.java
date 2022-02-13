@@ -31,6 +31,11 @@ public enum BLPMessage {
 		this.path = string;
 	}
 
+	/**
+	 * Gets the path on messages.yml to the message.
+	 * 
+	 * @return The path of the message.
+	 */
 	public String getPath() {
 		return path;
 	}

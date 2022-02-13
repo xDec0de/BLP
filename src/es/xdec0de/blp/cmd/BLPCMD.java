@@ -12,6 +12,7 @@ import es.xdec0de.blp.utils.files.BLPSetting;
 
 public class BLPCMD implements CommandExecutor {
 
+	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(args.length == 1) {
 			switch(args[0].toLowerCase()) { // I don't like java 8 switches :(
